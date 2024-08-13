@@ -5,12 +5,12 @@ if [ ! -d "$OUTPUT_DIR" ]; then
 fi
 
 
-torchrun /cache/zy/InternVL2/internvl2/internvl/train/internvl_chat_finetune_dpo.py \
+torchrun internvl/train/internvl_chat_finetune_dpo.py \
   --model_name_or_path "/cache/zy/model/InternVL2-4B" \
   --conv_style "phi3-chat" \
   --output_dir ${OUTPUT_DIR} \
-  --data_path /cache/zy/LLaVA-Hound-DPO/dpo_train_data.jsonl \
-  --image_folder /cache/gpt4o-/petel_zh/image \
+  --data_path /cache/data/dpo_train_data.jsonl \
+  --image_folder /cache/data/image \
   --overwrite_output_dir True \
   --force_image_size 448 \
   --max_dynamic_patch 12 \
@@ -43,7 +43,7 @@ torchrun /cache/zy/InternVL2/internvl2/internvl/train/internvl_chat_finetune_dpo
   --dynamic_image_size True \
   --use_thumbnail True \
   --ps_version 'v2' \
-  --deepspeed /cache/zy/InternLM-XComposer/InternLM-XComposer-2.0/finetune/ds_config_zero2.json \
+  --deepspeed path/to/ds_config_zero2.json \
   --report_to "tensorboard" \
   --fp16 True \
   2>&1 | tee -a "/cache/zy/internvl_dpo_debug/training_log.txt"
