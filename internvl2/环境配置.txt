@@ -6,6 +6,7 @@ pip install -e .
 pip install orjson
 pip install datasets
 pip install pandas==1.5.1
+pip install tyro==0.7.2
 pip install flash-attn==2.3.6 --no-build-isolation
 
 dpo数据样例
