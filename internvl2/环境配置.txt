@@ -1,6 +1,7 @@
 先 cd 到 internvl2 目录下
 pip install torch==2.0.1 torchvision==0.15.2
 pip install -e .
+pip install orjson
 pip install flash-attn==2.3.6 --no-build-isolation
 
 dpo数据样例
