@@ -1,4 +1,5 @@
 先 cd 到 internvl2 目录下
+pip install --upgrade pip
 pip install torch==2.0.1 torchvision==0.15.2
 pip install transformers==4.37.2
 pip install -e .
