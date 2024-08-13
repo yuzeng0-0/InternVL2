@@ -11,7 +11,9 @@ from transformers.configuration_utils import PretrainedConfig
 from transformers.utils import logging
 
 from .configuration_intern_vit import InternVisionConfig
+from ..internlm2.configuration_internlm2 import InternLM2Config
 from ..phi3.configuration_phi3 import Phi3Config
+
 
 logger = logging.get_logger(__name__)
 
@@ -49,6 +51,8 @@ class InternVLChatConfig(PretrainedConfig):
         self.vision_config = InternVisionConfig(**vision_config)
         if llm_config['architectures'][0] == 'LlamaForCausalLM':
             self.llm_config = LlamaConfig(**llm_config)
+        elif llm_config['architectures'][0] == 'InternLM2ForCausalLM':
+            self.llm_config = InternLM2Config(**llm_config)
         elif llm_config['architectures'][0] == 'Phi3ForCausalLM':
             self.llm_config = Phi3Config(**llm_config)
         else:
